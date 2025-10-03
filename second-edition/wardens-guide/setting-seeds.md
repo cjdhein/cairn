@@ -35,7 +35,7 @@ The most important aspect of a region is its _people_: their character, ambition
 
 #### Culture
 
-Roll 1d20 for each column and combine the results.
+Roll 1d20 for each column and combine the results!
 <div class="die-roller" data-die="d20">
 |         |               |                 |
 | ------- | ------------- | --------------- |
