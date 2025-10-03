@@ -1,16 +1,13 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-  // Find all headings or comments marking a die-roller table
   document.querySelectorAll('h3, h2, h4').forEach(function(header) {
     const match = header.textContent.match(/die-roller:(d\d+)/i);
     console.log('Found header:', header.textContent, match);
     if (match) {
       const dieType = match[1];
-      // Find the next table after this header
       let next = header.nextElementSibling;
       while (next && next.tagName !== 'TABLE') next = next.nextElementSibling;
       if (next) {
-        // Insert button/result
         const button = document.createElement('button');
         button.className = 'roll-btn';
         button.textContent = `Roll ${dieType}`;
