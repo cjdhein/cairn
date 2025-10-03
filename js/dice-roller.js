@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('h3, h2, h4').forEach(function(header) {
     const match = header.textContent.match(/die-roller:(d\d+)/i);
     if (match) {
+      header.textContent = header.textContent.replace(/die-roller:(d\d+)/i, '').trim();
       const dieType = match[1];
       // Find the next table after this header
       let next = header.nextElementSibling;
