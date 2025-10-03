@@ -1,21 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.die-roller').forEach(function(roller) {
-    const dieType = parseInt(roller.dataset.die.replace('d',''), 10);
-    const button = document.createElement('button');
-    button.className = 'roll-btn';
-    button.textContent = `Roll ${roller.dataset.die}`;
-    const resultDiv = document.createElement('div');
-    resultDiv.className = 'result';
-    roller.insertBefore(button, roller.firstChild);
-    roller.insertBefore(resultDiv, roller.firstChild.nextSibling);
+  // Find all headings or comments marking a die-roller table
+  document.querySelectorAll('h3, h2, h4').forEach(function(header) {
+    const match = header.textContent.match(/die-roller:(d\d+)/i);
+    if (match) {
+      const dieType = match[1];
+      // Find the next table after this header
+      let next = header.nextElementSibling;
+      while (next && next.tagName !== 'TABLE') next = next.nextElementSibling;
+      if (next) {
+        // Insert button/result
+        const button = document.createElement('button');
+        button.className = 'roll-btn';
+        button.textContent = `Roll ${dieType}`;
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'result';
+        header.parentNode.insertBefore(button, next);
+        header.parentNode.insertBefore(resultDiv, next);
 
-    button.addEventListener('click', function() {
-      const rows = roller.querySelectorAll('tbody tr');
-      const roll = Math.floor(Math.random() * dieType); // 0-based index
-      rows.forEach((row, idx) => row.classList.toggle('rolled', idx === roll));
-      const cells = rows[roll].querySelectorAll('td');
-      let result = Array.from(cells).map(cell => cell.textContent.trim()).join(' | ');
-      resultDiv.textContent = `Rolled: ${roll + 1} → ${result}`;
-    });
+        button.addEventListener('click', function() {
+          const rows = next.querySelectorAll('tbody tr, tr');
+          const dieNum = parseInt(dieType.replace('d', ''), 10);
+          const rollIdx = Math.floor(Math.random() * dieNum);
+          rows.forEach((row, idx) => row.classList.toggle('rolled', idx === rollIdx));
+          const cells = rows[rollIdx].querySelectorAll('td, th');
+          let result = Array.from(cells).map(cell => cell.textContent.trim()).join(' | ');
+          resultDiv.textContent = `Rolled: ${rollIdx + 1} → ${result}`;
+        });
+      }
+    }
   });
 });

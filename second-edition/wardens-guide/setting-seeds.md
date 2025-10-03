@@ -33,10 +33,9 @@ A **Realm** is a general term for a related collection of regions, potentially e
 
 The most important aspect of a region is its _people_: their character, ambitions, and the resources that tie them to this land. Roll on the [Culture](#culture) and [Resources](#resources) tables, then note the results in your notebook.    
 
-#### Culture
+#### Culture <!-- die-roller:d20 -->
 
 Roll 1d20 for each column and combine the results!
-<div class="die-roller table-wrapper" data-die="d20">
 |         |               |                 |
 | ------- | ------------- | --------------- |
 | **d20** | **Character** | **Ambition**    |
