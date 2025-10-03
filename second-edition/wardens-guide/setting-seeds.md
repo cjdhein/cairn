@@ -36,6 +36,7 @@ The most important aspect of a region is its _people_: their character, ambition
 #### Culture <!-- die-roller:d20 -->
 
 Roll 1d20 for each column and combine the results!
+
 |         |               |                 |
 | ------- | ------------- | --------------- |
 | **d20** | **Character** | **Ambition**    |
@@ -59,7 +60,7 @@ Roll 1d20 for each column and combine the results!
 | **18**  | War-like      | Stability       |
 | **19**  | Wealthy       | Unification     |
 | **20**  | Xenophobic    | Wealth          |
-</div>
+
 #### Resources
 
 Roll 1d20 for each column and combine the results.
