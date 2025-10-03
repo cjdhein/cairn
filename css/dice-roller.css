@@ -1,0 +1,10 @@
+.die-roller .rolled {
+  background: #ffeeba;
+}
+.die-roller .result {
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+.die-roller .roll-btn {
+  margin-bottom: 0.5em;
+}
